@@ -54,12 +54,13 @@ public class Poker {
     }
 
     /**
-     * Initialize playerList and determine the winner
+     * Initialize playerList and determine the winner.
+     * In case there're more than one hand, return a hand list containing all winning hands.
      *
      * @param args user input arguments
      */
     private static void process(String[] args) {
-        List<Player> playerList = new ArrayList<>();
+        List<Hand> handList = new ArrayList<>();
 
         // Segment arguments array by 5
         for (int i = 0; i < args.length / 5; i++) {
@@ -70,17 +71,17 @@ public class Poker {
                 Card card = new Card(args[i * 5 + j].substring(0, 1), args[i * 5 + j].substring(1, 2));
                 cards[j] = card;
             }
-            Hand hand = new Hand(cards);
-            Player player = new Player(i + 1, hand); // for i == 0, player's id == 1
-            playerList.add(player);
-            System.out.println("Player " + player.getId() + ": " + hand.getDescription());
+            Hand hand = new Hand(i + 1, cards);
+            handList.add(hand);
+            System.out.println("Player " + hand.getId() + ": " + hand.getDescription());
         }
 
         // If more than 1 player, determine the winner.
-        if (playerList.size() > 1) {
-            String s = Player.decideWinner(playerList);
+        if (handList.size() > 1) {
+            String s = HandHelper.decideWinner(handList);
             System.out.println(s);
         }
     }
+
 
 }

@@ -10,6 +10,7 @@ import java.util.List;
  * @Time: 22:58
  */
 public class Hand implements Comparable<Hand> {
+    private int id;
     private String category;
     private String description;
     private HandType handType;
@@ -20,9 +21,10 @@ public class Hand implements Comparable<Hand> {
      *
      * @param cards An array of 5 cards
      */
-    public Hand(Card[] cards) {
+    public Hand(int id, Card[] cards) {
         // Process only if cards[] contains 5 elements
         if (cards != null && cards.length == 5) {
+            this.id = id;
             this.cardArray = cards;
             Arrays.sort(cardArray); // sort the array into ascending order
             decideCategory(cardArray);
@@ -183,6 +185,13 @@ public class Hand implements Comparable<Hand> {
         return sList;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public Card[] getCardArray() {
         return cardArray;
