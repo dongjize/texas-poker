@@ -6,10 +6,7 @@
  * @Time: 00:20
  */
 public enum Suit {
-    CLUB("C"),
-    DIAMOND("D"),
-    HEART("H"),
-    SPADE("S");
+    CLUB("C"), DIAMOND("D"), HEART("H"), SPADE("S");
 
     private String value;
 
