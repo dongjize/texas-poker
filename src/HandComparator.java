@@ -8,6 +8,13 @@ import java.util.Comparator;
  * @Time: 13:08
  */
 public class HandComparator implements Comparator<Hand> {
+    /**
+     * Simply implements default comparing method
+     *
+     * @param h1
+     * @param h2
+     * @return
+     */
     @Override
     public int compare(Hand h1, Hand h2) {
         return h1.compareTo(h2);

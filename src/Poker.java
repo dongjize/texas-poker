@@ -68,7 +68,7 @@ public class Poker {
             Card[] cards = new Card[5];
             // For each card in a hand, instantiate according to the input string
             for (int j = 0; j < 5; j++) {
-                Card card = new Card(args[i * 5 + j].substring(0, 1), args[i * 5 + j].substring(1, 2));
+                Card card = new Card(args[i * 5 + j]);
                 cards[j] = card;
             }
             Hand hand = new Hand(i + 1, cards);

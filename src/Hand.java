@@ -10,16 +10,20 @@ import java.util.List;
  * @Time: 22:58
  */
 public class Hand implements Comparable<Hand> {
+    // essentially the id number of a player, also can represent a hand
     private int id;
+    // output string of hand category
     private String category;
+    // output string of hand description
     private String description;
+    // the hand type enum
     private HandType handType;
+    // the cards constituting the hand
     private Card[] cardArray;
 
     /**
-     * Constructor method
-     *
-     * @param cards An array of 5 cards
+     * @param id    the id number of player, also the hand
+     * @param cards an array of five cards
      */
     public Hand(int id, Card[] cards) {
         // Process only if cards[] contains 5 elements
@@ -222,12 +226,20 @@ public class Hand implements Comparable<Hand> {
     }
 
 
+    /**
+     * For two different kinds of hands, compare their hand type straightforward.
+     * If hand types are the same, compare the card rank in descending order.
+     *
+     * @param h the hand to compare to
+     * @return 1 if greater than h; -1 if smaller than h; 0 if equal to h.
+     */
     @Override
     public int compareTo(Hand h) {
         if (handType == null || h.getHandType() == null) {
-            throw new RuntimeException("Hand is null! ");
+            throw new RuntimeException(Hand.class.getSimpleName() + ": Hand is null!");
         }
 
+        // judge whether the two hands have the same type
         if (handType.compareTo(h.getHandType()) < 0) {
             return 1;
         }
@@ -235,9 +247,8 @@ public class Hand implements Comparable<Hand> {
             return -1;
         }
 
-        // If either hand has the same type
+        // If both have the same type, compare the rank of cards in descending order
         Card[] arr = h.getCardArray();
-        // compare the rank of cards
         for (int i = cardArray.length - 1; i >= 0; i--) {
             if (cardArray[i].getRank().compareTo(arr[i].getRank()) < 0) {
                 return -1;

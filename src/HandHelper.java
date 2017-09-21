@@ -2,13 +2,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 /*
- * Description: A utility class that helps handling winner decision.
+ * Description: A utility class that helps handle winner decision.
  *
  * @Author: dong
  * @Date: 2017-09-20
  * @Time: 13:25
  */
 public class HandHelper {
+
     /**
      * Decide which hand to win and output appropriate result string to the client.
      *

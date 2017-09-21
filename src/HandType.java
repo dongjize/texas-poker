@@ -1,5 +1,5 @@
 /*
- * Description: 
+ * Description: A simple Enum for hand type
  *
  * @Author: dong
  * @Date: 2017-09-15

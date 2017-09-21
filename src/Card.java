@@ -11,13 +11,16 @@ import java.util.Map;
  * @Time: 00:36
  */
 public class Card implements Comparable<Card> {
+    // maps of rank and suit
     private static Map<String, Rank> rankMap;
     private static Map<String, Suit> suitMap;
+    // rank and suit
     private Rank rank;
     private Suit suit;
     // If card is "n of a kind", assign n to priorRank for comparison
     private int priorRank = -1;
 
+    // Statically, store the map of rank and suit beforehand.
     static {
         mapRank();
         mapSuit();
@@ -26,7 +29,7 @@ public class Card implements Comparable<Card> {
     // ============ Static methods =============
 
     /**
-     * Map the input string to a Rank enum
+     * Map the input string to a Rank enum (Upper and lower case insensitive)
      */
     private static void mapRank() {
         rankMap = new HashMap<>();
@@ -51,7 +54,7 @@ public class Card implements Comparable<Card> {
     }
 
     /**
-     * Map the input string to a Suit enum
+     * Map the input string to a Suit enum (Upper and lower case insensitive)
      */
     private static void mapSuit() {
         suitMap = new HashMap<>();
@@ -68,24 +71,9 @@ public class Card implements Comparable<Card> {
     // ============= Constructor Methods ==============
 
     /**
-     * Constructor method
+     * Constructor method (auxiliary, currently not in use)
      *
-     * @param s1 one-character string representing rank
-     * @param s2 one-character string representing suit
-     */
-    public Card(String s1, String s2) {
-        if ("".equals(s1) || "".equals(s2)) {
-            return;
-        }
-        rank = rankMap.get(s1);
-        suit = suitMap.get(s2);
-
-    }
-
-    /**
-     * Constructor method
-     *
-     * @param s two-character string representing rank and suit
+     * @param s a two-character string representing rank and suit
      */
     public Card(String s) {
         if ("".equals(s) || s.length() < 2) {
@@ -93,20 +81,6 @@ public class Card implements Comparable<Card> {
         }
         rank = rankMap.get(s.substring(0, 1));
         suit = suitMap.get(s.substring(1, 2));
-    }
-
-    /**
-     * Constructor method (directly pass rank and suit to constructor)
-     *
-     * @param rank rank enum
-     * @param suit suit enum
-     */
-    public Card(Rank rank, Suit suit) {
-        if (rank == null && suit == null) {
-            return;
-        }
-        this.rank = rank;
-        this.suit = suit;
     }
 
     // =====================================
@@ -157,6 +131,8 @@ public class Card implements Comparable<Card> {
         } else if (rank.compareTo(c.getRank()) > 0) {
             return 1;
         }
+
+        //If all the same, equal
         return 0;
     }
 }
