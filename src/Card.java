@@ -68,8 +68,6 @@ public class Card implements Comparable<Card> {
         suitMap.put("s", Suit.SPADE);
     }
 
-    // ============= Constructor Methods ==============
-
     /**
      * Constructor method (auxiliary, currently not in use)
      *
@@ -82,8 +80,6 @@ public class Card implements Comparable<Card> {
         rank = rankMap.get(s.substring(0, 1));
         suit = suitMap.get(s.substring(1, 2));
     }
-
-    // =====================================
 
     public Rank getRank() {
         return rank;
