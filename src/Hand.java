@@ -12,16 +12,16 @@ import java.util.List;
 public class Hand implements Comparable<Hand> {
     // essentially the id number of a player, also can represent a hand
     private int id;
-    // output string of hand category
-    private String category;
-    // output string of hand description
-    private String description;
     // the hand type enum
     private HandType handType;
+    // output string of hand description
+    private String description;
     // the cards constituting the hand
     private Card[] cardArray;
 
     /**
+     * Constructor method. Sorts the input card array and determines the category of hand.
+     *
      * @param id    the id number of player, also the hand
      * @param cards an array of five cards
      */
@@ -38,79 +38,70 @@ public class Hand implements Comparable<Hand> {
     /**
      * Determine the category and type of the hand and set description
      *
-     * @param arr card array
+     * @param arr input card array
      */
     private void decideCategory(Card[] arr) {
         // Straight flush
         if (!"".equals(judgeStraight(arr)) && !"".equals(judgeFlush(arr))) {
-            setCategory("Straight flush");
-            setDescription(judgeStraight(arr) + "-high straight flush");
             setHandType(HandType.STRAIGHT_FLUSH);
+            setDescription(judgeStraight(arr) + "-high straight flush");
             return;
         }
 
         // Four of a kind
         if (nOfAKind(arr, 4).size() > 0) {
-            setCategory("Four of a kind");
-            setDescription("Four " + nOfAKind(arr, 4).get(0) + "s");
             setHandType(HandType.FOUR_OF_A_KIND);
+            setDescription("Four " + nOfAKind(arr, 4).get(0) + "s");
             return;
         }
 
         // Full house
         if (nOfAKind(arr, 3).size() > 0 && nOfAKind(arr, 2).size() > 0) {
-            setCategory("Full house");
-            setDescription(nOfAKind(arr, 3).get(0) + "s full of " + nOfAKind(arr, 2).get(0) + "s");
             setHandType(HandType.FULL_HOUSE);
+            setDescription(nOfAKind(arr, 3).get(0) + "s full of " + nOfAKind(arr, 2).get(0) + "s");
             return;
         }
 
         // Flush
         if (!"".equals(judgeFlush(arr))) {
-            setCategory("Flush");
-            setDescription(judgeFlush(arr) + "-high flush");
             setHandType(HandType.FLUSH);
+            setDescription(judgeFlush(arr) + "-high flush");
             return;
         }
 
         // Straight
         if (!"".equals(judgeStraight(arr))) {
-            setCategory("Straight");
-            setDescription(judgeStraight(arr) + "-high straight");
             setHandType(HandType.STRAIGHT);
+            setDescription(judgeStraight(arr) + "-high straight");
             return;
         }
 
         // Three of a kind
         if ((nOfAKind(arr, 3).size() > 0)) {
-            setCategory("Three of a kind");
-            setDescription("Three " + nOfAKind(arr, 3).get(0) + "s");
             setHandType(HandType.THREE_OF_A_HAND);
+            setDescription("Three " + nOfAKind(arr, 3).get(0) + "s");
             return;
         }
 
         // Two pair
         if (nOfAKind(arr, 2).size() == 2) {
             List<String> list = nOfAKind(arr, 2);
-            setCategory("Two pair");
-            setDescription(list.get(1) + "s over " + list.get(0) + "s");
             setHandType(HandType.TWO_PAIR);
+            setDescription(list.get(1) + "s over " + list.get(0) + "s");
             return;
         }
 
         // One pair
         if (nOfAKind(arr, 2).size() == 1) {
             List<String> list = nOfAKind(arr, 2);
-            setCategory("One pair");
-            setDescription("Pair of " + list.get(0) + "s");
             setHandType(HandType.ONE_PAIR);
+            setDescription("Pair of " + list.get(0) + "s");
             return;
         }
 
         // Otherwise, type should be High card
-        setCategory("High card");
-        setDescription(cardArray[cardArray.length - 1].getRank().toString() + "-high");
         setHandType(HandType.HIGH_CARD);
+        setDescription(cardArray[cardArray.length - 1].getRank().toString() + "-high");
     }
 
 
@@ -201,12 +192,12 @@ public class Hand implements Comparable<Hand> {
         return cardArray;
     }
 
-    public String getCategory() {
-        return category;
+    public HandType getHandType() {
+        return handType;
     }
 
-    private void setCategory(String category) {
-        this.category = category;
+    private void setHandType(HandType handType) {
+        this.handType = handType;
     }
 
     public String getDescription() {
@@ -216,15 +207,6 @@ public class Hand implements Comparable<Hand> {
     private void setDescription(String description) {
         this.description = description;
     }
-
-    public HandType getHandType() {
-        return handType;
-    }
-
-    private void setHandType(HandType handType) {
-        this.handType = handType;
-    }
-
 
     /**
      * For two different kinds of hands, compare their hand type straightforward.

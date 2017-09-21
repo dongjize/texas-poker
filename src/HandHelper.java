@@ -18,9 +18,8 @@ public class HandHelper {
      */
     public static String decideWinner(List<Hand> hands) {
         String result = "";
-        HandComparator comparator = new HandComparator();
 
-        hands.sort(comparator); // Sort the hand list by HandComparator
+        hands.sort(new HandComparator()); // Sort the hand list by HandComparator
         List<Integer> list = new ArrayList<>(); // the list of winning hands (in case more than one)
         for (int i = 0; i < hands.size() - 1; i++) {
             // If an hand is equal to top ranked hand, it's also a winning hand
@@ -36,17 +35,13 @@ public class HandHelper {
         } else if (list.size() > 1) {
             StringBuilder sb = new StringBuilder();
             sb.append("Players ");
+            // from the first element to the third largest:
             for (int i = 0; i < list.size() - 2; i++) {
-                sb.append(list.get(i));
-                sb.append(", ");
+                sb.append(list.get(i)).append(", ");
             }
             // the second last element
             sb.append(list.get(list.size() - 2));
-            // which is followed by "and" instead of a comma
-            sb.append(" and ");
-            // the last element
-            sb.append(list.get(list.size() - 1));
-            sb.append(" draw.");
+            sb.append(" and ").append(list.get(list.size() - 1)).append(" draw.");
             result = sb.toString();
         }
 

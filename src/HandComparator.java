@@ -11,9 +11,9 @@ public class HandComparator implements Comparator<Hand> {
     /**
      * Simply implements default comparing method
      *
-     * @param h1
-     * @param h2
-     * @return
+     * @param h1 hand1
+     * @param h2 hand2
+     * @return the result of hand1 and hand2 comparison
      */
     @Override
     public int compare(Hand h1, Hand h2) {

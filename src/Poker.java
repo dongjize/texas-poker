@@ -10,16 +10,9 @@ import java.util.List;
  */
 public class Poker {
     public static void main(String[] args) {
-
-        // Judge the legality of card count
         judgeCardCountLegal(args);
-
-        // The card count is legal, then judge the legality of rank and suit
         judgeRankSuitLegal(args);
-
-        // Initialize player list and determine the winner
         process(args);
-
     }
 
     /**
