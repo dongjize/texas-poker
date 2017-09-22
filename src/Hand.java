@@ -17,10 +17,11 @@ public class Hand implements Comparable<Hand> {
     // output string of hand description
     private String description;
     // the cards constituting the hand
-    private Card[] cardArray;
+    private Card[] cardsArr;
 
     /**
-     * Constructor method. Sorts the input card array and determines the category of hand.
+     * Constructor method.
+     * Sorts the input card array and determines the category of hand.
      *
      * @param id    the id number of player, also the hand
      * @param cards an array of five cards
@@ -29,14 +30,14 @@ public class Hand implements Comparable<Hand> {
         // Process only if cards[] contains 5 elements
         if (cards != null && cards.length == 5) {
             this.id = id;
-            this.cardArray = cards;
-            Arrays.sort(cardArray); // sort the array into ascending order
-            decideCategory(cardArray);
+            this.cardsArr = cards;
+            Arrays.sort(cardsArr); // sort the array into ascending order
+            decideCategory(cardsArr);
         }
     }
 
     /**
-     * Determine the category and type of the hand and set description
+     * Determine the category and type of the hand and set description.
      *
      * @param arr input card array
      */
@@ -58,7 +59,8 @@ public class Hand implements Comparable<Hand> {
         // Full house
         if (nOfAKind(arr, 3).size() > 0 && nOfAKind(arr, 2).size() > 0) {
             setHandType(HandType.FULL_HOUSE);
-            setDescription(nOfAKind(arr, 3).get(0) + "s full of " + nOfAKind(arr, 2).get(0) + "s");
+            setDescription(nOfAKind(arr, 3).get(0) +
+                    "s full of " + nOfAKind(arr, 2).get(0) + "s");
             return;
         }
 
@@ -101,7 +103,8 @@ public class Hand implements Comparable<Hand> {
 
         // Otherwise, type should be High card
         setHandType(HandType.HIGH_CARD);
-        setDescription(cardArray[cardArray.length - 1].getRank().toString() + "-high");
+        setDescription(cardsArr[cardsArr.length - 1].
+                getRank().toString() + "-high");
     }
 
 
@@ -114,7 +117,8 @@ public class Hand implements Comparable<Hand> {
      */
     private String judgeStraight(Card[] cards) {
         for (int i = 1; i < cards.length; i++) {
-            if (cards[i].getRank().ordinal() - cards[i - 1].getRank().ordinal() != 1) {
+            if (cards[i].getRank().ordinal() -
+                    cards[i - 1].getRank().ordinal() != 1) {
                 return "";
             }
         }
@@ -146,25 +150,26 @@ public class Hand implements Comparable<Hand> {
      *
      * @param cards the list of cards
      * @param n     number of a same kind
-     * @return If does contain, return a list of their ranks
+     * @return If does contain, return a list containing each rank.
+     * e.g: for [5, 5, 5, 6, 6], return a list [5, 6]
      */
     private List<String> nOfAKind(Card[] cards, int n) {
-        ArrayList<String> sList = new ArrayList<>(); // a container of "n" element ranks
+        ArrayList<String> sList = new ArrayList<>();
         if (cards == null || n < 2 || cards.length < n) {
             return sList; // empty list now
         }
 
-        // Start loop from 0 to (cards.length - n)
         int i = 0;
         while (i <= cards.length - n) {
             int gap = 1; // the pace to increase i
             // If ranks keep equal, add gap by 1
-            while (i + gap < cards.length && (cards[i].getRank() == cards[i + gap].getRank())) {
+            while (i + gap < cards.length &&
+                    cards[i].getRank() == cards[i + gap].getRank()) {
                 gap++;
             }
             // If gap is exactly equal to n
             if (gap == n) {
-                // Means cards[] is an "n of a kind", thus set the prior rank of cards
+                // Cards[] is "n of a kind", thus set the prior rank of cards
                 for (int j = i; j < i + n; j++) {
                     cards[j].setPriorRank(n);
                 }
@@ -188,8 +193,8 @@ public class Hand implements Comparable<Hand> {
         this.id = id;
     }
 
-    public Card[] getCardArray() {
-        return cardArray;
+    public Card[] getCardsArr() {
+        return cardsArr;
     }
 
     public HandType getHandType() {
@@ -209,8 +214,8 @@ public class Hand implements Comparable<Hand> {
     }
 
     /**
-     * For two different kinds of hands, compare their hand type straightforward.
-     * If hand types are the same, compare the card rank in descending order.
+     * For two different kinds of hands, compare their types straightforward.
+     * If hand types are the same, compare card ranks in descending order.
      *
      * @param h the hand to compare to
      * @return 1 if greater than h; -1 if smaller than h; 0 if equal to h.
@@ -218,7 +223,7 @@ public class Hand implements Comparable<Hand> {
     @Override
     public int compareTo(Hand h) {
         if (handType == null || h.getHandType() == null) {
-            throw new RuntimeException(Hand.class.getSimpleName() + ": Hand is null!");
+            throw new RuntimeException("Hand is null!");
         }
 
         // judge whether the two hands have the same type
@@ -229,12 +234,12 @@ public class Hand implements Comparable<Hand> {
             return -1;
         }
 
-        // If both have the same type, compare the rank of cards in descending order
-        Card[] arr = h.getCardArray();
-        for (int i = cardArray.length - 1; i >= 0; i--) {
-            if (cardArray[i].getRank().compareTo(arr[i].getRank()) < 0) {
+        // If both the same type, compare the rank of cards in descending order
+        Card[] arr = h.getCardsArr();
+        for (int i = cardsArr.length - 1; i >= 0; i--) {
+            if (cardsArr[i].getRank().compareTo(arr[i].getRank()) < 0) {
                 return -1;
-            } else if (cardArray[i].getRank().compareTo(arr[i].getRank()) > 0) {
+            } else if (cardsArr[i].getRank().compareTo(arr[i].getRank()) > 0) {
                 return 1;
             }
         }

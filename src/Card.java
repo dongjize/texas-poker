@@ -3,8 +3,11 @@ import java.util.Map;
 
 /*
  * Description: Card entity.
+ *
  * Each card has a rank and a suit, and only rank is to be compared.
- * There's also a priorRank field, indicating whether it has a special privilege for ranking.
+ *
+ * There's also a priorRank field, indicating whether it has a special
+ * privilege for ranking.
  *
  * @Author: dong
  * @Date: 2017-09-15
@@ -42,15 +45,10 @@ public class Card implements Comparable<Card> {
         rankMap.put("8", Rank.EIGHT);
         rankMap.put("9", Rank.NINE);
         rankMap.put("T", Rank.TEN);
-        rankMap.put("t", Rank.TEN);
         rankMap.put("J", Rank.JACK);
-        rankMap.put("j", Rank.JACK);
         rankMap.put("Q", Rank.QUEEN);
-        rankMap.put("q", Rank.QUEEN);
         rankMap.put("K", Rank.KING);
-        rankMap.put("k", Rank.KING);
         rankMap.put("A", Rank.ACE);
-        rankMap.put("a", Rank.ACE);
     }
 
     /**
@@ -59,13 +57,9 @@ public class Card implements Comparable<Card> {
     private static void mapSuit() {
         suitMap = new HashMap<>();
         suitMap.put("C", Suit.CLUB);
-        suitMap.put("c", Suit.CLUB);
         suitMap.put("D", Suit.DIAMOND);
-        suitMap.put("d", Suit.DIAMOND);
         suitMap.put("H", Suit.HEART);
-        suitMap.put("h", Suit.HEART);
         suitMap.put("S", Suit.SPADE);
-        suitMap.put("s", Suit.SPADE);
     }
 
     /**
