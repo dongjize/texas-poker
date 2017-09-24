@@ -63,7 +63,7 @@ public class Card implements Comparable<Card> {
     }
 
     /**
-     * Constructor method (auxiliary, currently not in use)
+     * Constructor method. Assign rank and suit to the card.
      *
      * @param s a two-character string representing rank and suit
      */
@@ -115,7 +115,7 @@ public class Card implements Comparable<Card> {
             return -1;
         }
 
-        //Prior ranks are equal
+        //Prior ranks are equal, thus compare ranks
         if (rank.compareTo(c.getRank()) < 0) {
             return -1;
         } else if (rank.compareTo(c.getRank()) > 0) {

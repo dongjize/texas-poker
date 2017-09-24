@@ -27,7 +27,6 @@ public class Hand implements Comparable<Hand> {
      * @param cards an array of five cards
      */
     public Hand(int id, Card[] cards) {
-        // Process only if cards[] contains 5 elements
         if (cards != null && cards.length == 5) {
             this.id = id;
             this.cardsArr = cards;
@@ -43,9 +42,9 @@ public class Hand implements Comparable<Hand> {
      */
     private void decideCategory(Card[] arr) {
         // Straight flush
-        if (!"".equals(judgeStraight(arr)) && !"".equals(judgeFlush(arr))) {
+        if (!"".equals(straight(arr)) && !"".equals(flush(arr))) {
             setHandType(HandType.STRAIGHT_FLUSH);
-            setDescription(judgeStraight(arr) + "-high straight flush");
+            setDescription(straight(arr) + "-high straight flush");
             return;
         }
 
@@ -65,16 +64,16 @@ public class Hand implements Comparable<Hand> {
         }
 
         // Flush
-        if (!"".equals(judgeFlush(arr))) {
+        if (!"".equals(flush(arr))) {
             setHandType(HandType.FLUSH);
-            setDescription(judgeFlush(arr) + "-high flush");
+            setDescription(flush(arr) + "-high flush");
             return;
         }
 
         // Straight
-        if (!"".equals(judgeStraight(arr))) {
+        if (!"".equals(straight(arr))) {
             setHandType(HandType.STRAIGHT);
-            setDescription(judgeStraight(arr) + "-high straight");
+            setDescription(straight(arr) + "-high straight");
             return;
         }
 
@@ -115,7 +114,7 @@ public class Hand implements Comparable<Hand> {
      * @param cards the array of cards
      * @return If straight, return the highest rank string.
      */
-    private String judgeStraight(Card[] cards) {
+    private String straight(Card[] cards) {
         for (int i = 1; i < cards.length; i++) {
             if (cards[i].getRank().ordinal() -
                     cards[i - 1].getRank().ordinal() != 1) {
@@ -133,7 +132,7 @@ public class Hand implements Comparable<Hand> {
      * @param cards the array of cards
      * @return If flush, return the highest rank string.
      */
-    private String judgeFlush(Card[] cards) {
+    private String flush(Card[] cards) {
         Suit suit = cards[cards.length - 1].getSuit();
         for (Card card : cards) {
             if (card.getSuit() != suit) {
@@ -151,17 +150,17 @@ public class Hand implements Comparable<Hand> {
      * @param cards the list of cards
      * @param n     number of a same kind
      * @return If does contain, return a list containing each rank.
-     * e.g: for [5, 5, 5, 6, 6], return a list [5, 6]
+     * e.g: for [5, 5, 5, 6, 6], return a list [5, 6]; for [7, 7, 7, 7, 8], return [8]
      */
     private List<String> nOfAKind(Card[] cards, int n) {
         ArrayList<String> sList = new ArrayList<>();
         if (cards == null || n < 2 || cards.length < n) {
-            return sList; // empty list now
+            return sList;
         }
 
         int i = 0;
         while (i <= cards.length - n) {
-            int gap = 1; // the pace to increase i
+            int gap = 1;
             // If ranks keep equal, add gap by 1
             while (i + gap < cards.length &&
                     cards[i].getRank() == cards[i + gap].getRank()) {
@@ -169,7 +168,7 @@ public class Hand implements Comparable<Hand> {
             }
             // If gap is exactly equal to n
             if (gap == n) {
-                // Cards[] is "n of a kind", thus set the prior rank of cards
+                // cards[] is of "n of a kind", thus assign n to prior rank
                 for (int j = i; j < i + n; j++) {
                     cards[j].setPriorRank(n);
                 }

@@ -5,7 +5,7 @@ import java.util.List;
  * Description: A utility class that helps handle winner decision.
  *
  * @Author: dong
- * @Date: 2017-09-20
+ * @Date: 2017-09-16
  * @Time: 13:25
  */
 public class HandHelper {
