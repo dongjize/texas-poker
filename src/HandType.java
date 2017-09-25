@@ -1,7 +1,8 @@
-/*
+/**
  * Description: A simple Enum for hand type
  *
- * @Author: dong
+ * @Author: Jize Dong
+ * @LoginID: jized
  * @Date: 2017-09-15
  * @Time: 23:41
  */

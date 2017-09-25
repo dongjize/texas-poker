@@ -1,10 +1,11 @@
 import java.util.ArrayList;
 import java.util.List;
 
-/*
+/**
  * Description: Client. Deals with the input arguments.
  *
- * @Author: dong
+ * @Author: Jize Dong
+ * @LoginID: jized
  * @Date: 2017-09-15
  * @Time: 00:28
  */
@@ -62,9 +63,7 @@ public class Poker {
 
         // Segment arguments array by 5
         for (int i = 0; i < args.length / 5; i++) {
-            // Instantiate an array containing five elements
             Card[] cards = new Card[5];
-            // Instantiate each card in a hand according to the input string
             for (int j = 0; j < 5; j++) {
                 Card card = new Card(args[i * 5 + j].toUpperCase());
                 cards[j] = card;

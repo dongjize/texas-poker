@@ -1,15 +1,14 @@
 import java.util.HashMap;
 import java.util.Map;
 
-/*
+/**
  * Description: Card entity.
- *
  * Each card has a rank and a suit, and only rank is to be compared.
- *
  * There's also a priorRank field, indicating whether it has a special
  * privilege for ranking.
  *
- * @Author: dong
+ * @Author: Jize Dong
+ * @LoginID: jized
  * @Date: 2017-09-15
  * @Time: 00:36
  */

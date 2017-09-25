@@ -1,10 +1,11 @@
 import java.util.ArrayList;
 import java.util.List;
 
-/*
+/**
  * Description: A utility class that helps handle winner decision.
  *
- * @Author: dong
+ * @Author: Jize Dong
+ * @LoginID: jized
  * @Date: 2017-09-16
  * @Time: 13:25
  */
