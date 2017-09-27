@@ -109,7 +109,7 @@ public class Hand implements Comparable<Hand> {
 
 
     /**
-     * Judge whether a array of card is straight.
+     * Judge whether an array of cards is straight.
      * If each element is 1 larger than previous, the hand is straight
      *
      * @param cards the array of cards
@@ -127,7 +127,7 @@ public class Hand implements Comparable<Hand> {
 
 
     /**
-     * Judge whether an array of card is flush.
+     * Judge whether an array of cards is flush.
      * If all cards have the same suit, the hand is flush.
      *
      * @param cards the array of cards
@@ -146,7 +146,7 @@ public class Hand implements Comparable<Hand> {
 
 
     /**
-     * Judge whether a list of card contains n same cards.
+     * Judge whether a list of cards contains n same cards.
      *
      * @param cards the list of cards
      * @param n     number of a same kind
