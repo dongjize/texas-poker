@@ -20,6 +20,11 @@ public class Hand implements Comparable<Hand> {
     // the cards constituting the hand
     private Card[] cardsArr;
 
+    enum HandType {
+        STRAIGHT_FLUSH, FOUR_OF_A_KIND, FULL_HOUSE, FLUSH, STRAIGHT,
+        THREE_OF_A_HAND, TWO_PAIR, ONE_PAIR, HIGH_CARD
+    }
+
     /**
      * Constructor method.
      * Sorts the input card array and determines the category of hand.

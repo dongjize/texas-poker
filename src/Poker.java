@@ -17,7 +17,8 @@ public class Poker {
     }
 
     /**
-     * Judge the legality of card count
+     * Judge the legality of card count. Simply test whether the length is
+     * multiple of 5 (larger than 0)
      *
      * @param args user input arguments
      */
@@ -52,6 +53,8 @@ public class Poker {
 
     /**
      * Initialize the list of hands and determine the winner.
+     * Segment arguments array by 5 to divide them into hands.
+     * If there're multiple hands, determine the winning hand by HandHelper.
      * <p>
      * In case there're more than one hand, cope with a hand list containing
      * all winning hands.
@@ -61,11 +64,10 @@ public class Poker {
     private static void process(String[] args) {
         List<Hand> handList = new ArrayList<>();
 
-        // Segment arguments array by 5
         for (int i = 0; i < args.length / 5; i++) {
             Card[] cards = new Card[5];
             for (int j = 0; j < 5; j++) {
-                Card card = new Card(args[i * 5 + j].toUpperCase());
+                Card card = CardFactory.createCard(args[i * 5 + j].toUpperCase());
                 cards[j] = card;
             }
             Hand hand = new Hand(i + 1, cards);
@@ -74,7 +76,7 @@ public class Poker {
                     hand.getDescription());
         }
 
-        // If more than 1 player, determine the winner.
+        // If multiple hands, determine the winner.
         if (handList.size() > 1) {
             String s = HandHelper.decideWinner(handList);
             System.out.println(s);
