@@ -14,7 +14,7 @@ public class HandHelper {
     /**
      * Decide which hand to win and output appropriate result to the client.
      *
-     * @param hands input hand list of winners
+     * @param hands input hand list of players
      * @return result string indicating the winner(s)
      */
     public static String decideWinner(List<Hand> hands) {
