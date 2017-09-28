@@ -37,7 +37,6 @@ public class CardFactory {
         suitMap.put("D", Suit.DIAMOND);
         suitMap.put("H", Suit.HEART);
         suitMap.put("S", Suit.SPADE);
-
     }
 
     public static Rank rank(String key) {
