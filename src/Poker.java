@@ -2,7 +2,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Description: Client. Deals with the input arguments.
+ * Description: Client. Deals with the input arguments, determines winning
+ * hand as well.
  *
  * @Author: Jize Dong
  * @LoginID: jized

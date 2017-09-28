@@ -3,7 +3,7 @@ import java.util.Map;
 
 /**
  * Description: In charge of each operation related to Card.
- * Statically possesses two maps that maps input string to Rank and Suit,
+ * Statically possesses two maps that map the input string to Rank and Suit,
  * preventing Card from handling mapping tasks each time it's instantiated.
  *
  * @Author: Jize Dong
