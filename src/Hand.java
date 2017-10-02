@@ -11,6 +11,8 @@ import java.util.List;
  * @Time: 22:58
  */
 public class Hand implements Comparable<Hand> {
+    // Number of cards required in a Hand
+    public static final int NUMBER_OF_CARDS = 5;
     // essentially the id number of a player, also can represent a hand
     private int id;
     // the hand type enum
@@ -33,7 +35,7 @@ public class Hand implements Comparable<Hand> {
      * @param cards an array of five cards
      */
     public Hand(int id, Card[] cards) {
-        if (cards != null && cards.length == 5) {
+        if (cards != null && cards.length == NUMBER_OF_CARDS) {
             this.id = id;
             this.cardsArr = cards;
             Arrays.sort(cardsArr); // sort the array into ascending order

@@ -65,9 +65,9 @@ public class Poker {
     private static void process(String[] args) {
         List<Hand> handList = new ArrayList<>();
 
-        for (int i = 0; i < args.length / 5; i++) {
-            Card[] cards = new Card[5];
-            for (int j = 0; j < 5; j++) {
+        for (int i = 0; i < args.length / Hand.NUMBER_OF_CARDS; i++) {
+            Card[] cards = new Card[Hand.NUMBER_OF_CARDS];
+            for (int j = 0; j < Hand.NUMBER_OF_CARDS; j++) {
                 Card card = CardFactory.createCard(args[i * 5 + j].toUpperCase());
                 cards[j] = card;
             }

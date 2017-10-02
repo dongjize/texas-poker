@@ -15,9 +15,6 @@ public class Card implements Comparable<Card> {
     // If card is "n of a kind", assign n to priorRank for comparison
     private int priorRank = -1;
 
-
-    // ============ Static methods =============
-
     /**
      * Constructor method. Assign rank and suit to the card.
      *
