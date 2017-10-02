@@ -4,8 +4,6 @@
  * There's also a priorRank field, indicating whether it has a special
  * priority for ranking.
  *
- * @Author: Jize Dong
- * @LoginID: jized
  * @Date: 2017-09-15
  * @Time: 00:36
  */

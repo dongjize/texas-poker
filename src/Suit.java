@@ -1,8 +1,6 @@
 /**
  * Description: Suit enum
  *
- * @Author: Jize Dong
- * @LoginID: jized
  * @Date: 2017-09-16
  * @Time: 00:20
  */

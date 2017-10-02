@@ -5,8 +5,6 @@ import java.util.List;
  * Description: Client. Deals with the input arguments, determines winning
  * hand as well.
  *
- * @Author: Jize Dong
- * @LoginID: jized
  * @Date: 2017-09-15
  * @Time: 00:28
  */

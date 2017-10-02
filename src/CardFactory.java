@@ -6,8 +6,6 @@ import java.util.Map;
  * Statically possesses two maps that map the input string to Rank and Suit,
  * preventing Card from handling mapping tasks each time it's instantiated.
  *
- * @Author: Jize Dong
- * @LoginID: jized
  * @Date: 2017-09-27
  * @Time: 23:52
  */

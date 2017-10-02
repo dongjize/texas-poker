@@ -5,8 +5,6 @@ import java.util.List;
 /**
  * Description: Hand Entity. Each hand contains an array of five cards.
  *
- * @Author: Jize Dong
- * @LoginID: jized
  * @Date: 2017-09-15
  * @Time: 22:58
  */

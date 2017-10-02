@@ -3,8 +3,6 @@ import java.util.Comparator;
 /**
  * Description: Comparator implemented to sort hand list
  *
- * @Author: Jize Dong
- * @LoginID: jized
  * @Date: 2017-09-26
  * @Time: 13:08
  */
