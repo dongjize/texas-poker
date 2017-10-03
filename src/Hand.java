@@ -145,8 +145,7 @@ public class Hand implements Comparable<Hand> {
                 return "";
             }
         }
-        return cards[cards.length - 1].getRank() != null ?
-                cards[cards.length - 1].getRank().toString() : "";
+        return cards[cards.length - 1].getRank().toString();
     }
 
 
