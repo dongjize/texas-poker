@@ -17,30 +17,29 @@ public class HandHelper {
      */
     public static String decideWinner(List<Hand> hands) {
         hands.sort(new HandComparator());
-        // the list of winning hands (in case more than one)
-        List<Integer> list = new ArrayList<>();
+
+        List<Integer> winnersList = new ArrayList<>();
         for (int i = 0; i < hands.size() - 1; i++) {
-            // If an hand is equal to top ranked hand, it's also a winning hand
+            // If a hand is equal to the top-ranked hand, it's also a winning hand
             if (hands.size() > 1 && hands.get(i).
                     compareTo(hands.get(hands.size() - 1)) == 0) {
-                list.add(hands.get(i).getId());
+                winnersList.add(hands.get(i).getId());
             }
         }
-        // Add the top ranked hand, certainly the winner
-        list.add(hands.get(hands.size() - 1).getId());
+        // Add the top-ranked hand, certainly the winner
+        winnersList.add(hands.get(hands.size() - 1).getId());
 
-        // concatenate the result string
         StringBuilder sb = new StringBuilder();
-        if (list.size() == 1) {
-            sb.append("Player ").append(list.get(0)).append(" wins.");
-        } else if (list.size() > 1) {
+        if (winnersList.size() == 1) {
+            sb.append("Player ").append(winnersList.get(0)).append(" wins.");
+        } else if (winnersList.size() > 1) {
             sb.append("Players ");
-            for (int i = 0; i < list.size() - 2; i++) {
-                sb.append(list.get(i)).append(", ");
+            for (int i = 0; i < winnersList.size() - 2; i++) {
+                sb.append(winnersList.get(i)).append(", ");
             }
-            sb.append(list.get(list.size() - 2)) // the second last element
+            sb.append(winnersList.get(winnersList.size() - 2))
                     .append(" and ")
-                    .append(list.get(list.size() - 1)) // the last element
+                    .append(winnersList.get(winnersList.size() - 1))
                     .append(" draw.");
         }
         return sb.toString();
