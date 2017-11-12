@@ -1,10 +1,12 @@
+package card;
+
 import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Description: In charge of each operation related to Card.
- * Statically possesses two maps that map the input string to Rank and Suit,
- * preventing Card from handling mapping tasks each time it's instantiated.
+ * Description: In charge of each operation related to card.Card.
+ * Statically possesses two maps that map the input string to card.Rank and card.Suit,
+ * preventing card.Card from handling mapping tasks each time it's instantiated.
  *
  * @Date: 2017-09-27
  * @Time: 23:52
@@ -15,7 +17,7 @@ public class CardFactory {
     private static Map<String, Suit> suitMap = new HashMap<>();
 
     static {
-        // Maps input string to Rank enum
+        // Maps input string to card.Rank enum
         rankMap.put("2", Rank.TWO);
         rankMap.put("3", Rank.THREE);
         rankMap.put("4", Rank.FOUR);
@@ -30,7 +32,7 @@ public class CardFactory {
         rankMap.put("K", Rank.KING);
         rankMap.put("A", Rank.ACE);
 
-        // Maps input string to Suit enum
+        // Maps input string to card.Suit enum
         suitMap.put("C", Suit.CLUB);
         suitMap.put("D", Suit.DIAMOND);
         suitMap.put("H", Suit.HEART);

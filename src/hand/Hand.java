@@ -1,15 +1,20 @@
+package hand;
+
+import card.Card;
+import card.Suit;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 /**
- * Description: Hand Entity. Each hand contains an array of five cards.
+ * Description: hand.Hand Entity. Each hand contains an array of five cards.
  *
  * @Date: 2017-09-15
  * @Time: 22:58
  */
 public class Hand implements Comparable<Hand> {
-    // Number of cards required in a Hand
+    // Number of cards required in a hand.Hand
     public static final int NUMBER_OF_CARDS = 5;
     // essentially the id number of a player, also can represent a hand
     private int id;
@@ -227,7 +232,7 @@ public class Hand implements Comparable<Hand> {
     @Override
     public int compareTo(Hand h) {
         if (handType == null || h.getHandType() == null) {
-            throw new RuntimeException("Hand is null!");
+            throw new RuntimeException("hand.Hand is null!");
         }
 
         // judge whether the two hands have the same type

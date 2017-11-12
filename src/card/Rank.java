@@ -1,5 +1,7 @@
+package card;
+
 /**
- * Description: Rank enum
+ * Description: card.Rank enum
  *
  * @Date: 2017-09-16
  * @Time: 00:11

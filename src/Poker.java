@@ -1,3 +1,8 @@
+import card.Card;
+import card.CardFactory;
+import hand.Hand;
+import hand.HandHelper;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,7 +58,7 @@ public class Poker {
     /**
      * Initialize the list of hands and determine the winner.
      * Segment arguments array by 5 to divide them into hands.
-     * If there're multiple hands, determine the winning hand by HandHelper.
+     * If there're multiple hands, determine the winning hand by hand.HandHelper.
      * <p>
      * In case there're more than one hand, cope with a hand list containing
      * all winning hands.

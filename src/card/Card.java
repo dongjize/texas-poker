@@ -1,5 +1,7 @@
+package card;
+
 /**
- * Description: Card class. Deals with comparison.
+ * Description: card.Card class. Deals with comparison.
  * Each card has a rank and a suit, only rank to be compared.
  * There's also a priorRank field, indicating whether it has a special
  * priority for ranking.

@@ -1,3 +1,5 @@
+package card;
+
 /**
  * Description: Suit enum
  *
