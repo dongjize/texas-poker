@@ -16,7 +16,7 @@ public class HandHelper {
      * @return result string indicating the winner(s)
      */
     public static String decideWinner(List<Hand> hands) {
-        hands.sort(new HandComparator());
+        hands.sort(HandComparator.getInstance());
 
         List<Integer> winnersList = new ArrayList<>();
         for (int i = 0; i < hands.size() - 1; i++) {

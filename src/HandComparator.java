@@ -7,6 +7,24 @@ import java.util.Comparator;
  * @Time: 13:08
  */
 public class HandComparator implements Comparator<Hand> {
+
+    private static HandComparator INSTANCE = null;
+
+    private HandComparator() {
+
+    }
+
+    public static HandComparator getInstance() {
+        if (INSTANCE == null) {
+            synchronized (HandComparator.class) {
+                if (INSTANCE == null) {
+                    INSTANCE = new HandComparator();
+                }
+            }
+        }
+        return INSTANCE;
+    }
+
     /**
      * Simply implements default comparing method
      *
